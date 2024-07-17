@@ -97,7 +97,7 @@ REST_FRAMEWORK = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "http://35.172.134.100:8000"
+    "http://timeless-trend.s3-website-us-east-1.amazonaws.com"
 ]
 
 SIMPLE_JWT = {
