@@ -10,9 +10,13 @@ class Items(models.Model):
     def __str__(self):
         return self.name
 
-class User(models.Model):
-    user_id = models.AutoField(primary_key=True)
-    username = models.CharField(max_length=100)  
-    passw = models.CharField(max_length=15)
+class Posts(models.Model):
+    post_id = models.AutoField(primary_key=True)
+    user_id = models.IntegerField()
+    title = models.CharField(max_length=30)
+    datetime = models.DateTimeField()
+    message = models.TextField()
+    reaction = models.IntegerField()
 
-    
+    def __str__(self):
+        return self.title

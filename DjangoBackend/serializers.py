@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Items, User
+from .models import Items, Posts
 
 class ItemsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -7,7 +7,7 @@ class ItemsSerializer(serializers.ModelSerializer):
         fields = ['item_id', 'image','name', 'price', 'description']
 
 
-class UserSerializer(serializers.ModelSerializer):
+class PostsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ['user_id','username', 'passw']
+        model = Posts
+        fields = ['post_id','user_id','title','datetime','message', 'reaction']

@@ -24,5 +24,5 @@ urlpatterns = [
     path('items/<int:id>/', views.itemsApi),
     path('user/', views.reg_user),
     path('loginuser/', views.login_user),
-    # path('admin/login/', views.login_user, name='login-user')
+    path('posts/', views.vio_posts)
 ]

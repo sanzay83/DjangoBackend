@@ -1,14 +1,11 @@
-from DjangoBackend.models import Items
-# , User
-
-from DjangoBackend.serializers import ItemsSerializer, UserSerializer
+from DjangoBackend.models import Items, Posts
+from DjangoBackend.serializers import ItemsSerializer, PostsSerializer
 from django.contrib.auth.models import User
 from django.http.response import JsonResponse
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import api_view
 from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
 from rest_framework import status
-# from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate
@@ -61,3 +58,23 @@ def login_user(request):
         })
     else:
         return Response({"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
+    
+
+
+@api_view(['GET','POST','DELETE'])
+def vio_posts(request, id=0):
+  if request.method=='GET':
+    post = Posts.objects.all()
+    post_serializer = PostsSerializer(post, many=True)
+    return JsonResponse(post_serializer.data, safe=False)
+  elif request.method=='POST':
+    post_data = JSONParser().parse(request)
+    post_serializer = PostsSerializer(data=post_data)
+    if post_serializer.is_valid():
+      post_serializer.save()
+      return Response({"message": "Added successfully"}, status=status.HTTP_201_CREATED)
+    return Response({"error": "Failed to add"}, status=status.HTTP_400_BAD_REQUEST)
+  elif request.method=='DELETE':
+    post =Posts.objects.get(post_id=id)
+    post.delete()
+    return JsonResponse("Deleted Successfully", safe=False)
