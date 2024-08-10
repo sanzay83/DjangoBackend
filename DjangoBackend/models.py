@@ -12,7 +12,7 @@ class Items(models.Model):
 
 class Posts(models.Model):
     post_id = models.AutoField(primary_key=True)
-    user_id = models.IntegerField()
+    username = models.CharField(max_length=150)
     title = models.CharField(max_length=30)
     datetime = models.DateTimeField()
     message = models.TextField()
