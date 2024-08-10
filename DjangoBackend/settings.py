@@ -72,6 +72,7 @@ REST_FRAMEWORK = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "https://vio.sanjayduwal.com/",
     "http://timeless-trend.s3-website-us-east-1.amazonaws.com"
 ]
 
