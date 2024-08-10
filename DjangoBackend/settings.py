@@ -5,8 +5,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-ag*au83*b9qp-9e_7#!^zjm)wpp93=k_47o)em&*vx@t)r^&a!'
 
-DEBUG = True
-
+DEBUG = False
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_SECONDS = 3600
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 ALLOWED_HOSTS = ['35.172.134.100', 'localhost', '127.0.0.1', '54.158.80.70']
 
 INSTALLED_APPS = [
