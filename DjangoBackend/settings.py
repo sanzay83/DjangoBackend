@@ -3,7 +3,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-ag*au83*b9qp-9e_7#!^zjm)wpp93=k_47o)em&*vx@t)r^&a!'
+SECRET_KEY = 'mjstp!_=$r%q_5u4tfj#@a3vnd#3#t60s=po@7bl=zqmhs47nr'
 
 DEBUG = False
 SECURE_SSL_REDIRECT = True
@@ -12,6 +12,8 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 ALLOWED_HOSTS = ['35.172.134.100', 'localhost', '127.0.0.1', '54.158.80.70']
 
 INSTALLED_APPS = [
